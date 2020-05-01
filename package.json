@@ -19,7 +19,8 @@
     "lodash": "^4.17.11",
     "normalize-package-data": "^2.5.0",
     "qqjs": "^0.3.10",
-    "tslib": "^1.9.3"
+    "tslib": "^1.9.3",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@oclif/plugin-legacy": "^1.1.4",
@@ -92,7 +93,10 @@
     "prepack": "rm -rf lib && tsc && node ./bin/run manifest",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "npm run changelog && node ./bin/run readme && git add README.md",
-    "pretest": "tsc -p test --noEmit"
+    "pretest": "tsc -p test --noEmit",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
-  "types": "lib/index.d.ts"
+  "types": "lib/index.d.ts",
+  "snyk": true
 }
